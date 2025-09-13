@@ -4,15 +4,15 @@ import { NextResponse } from "next/server";
 
 const client = new PrismaClient();
 
-export async function GET() {
-    const user = await client.user.findFirst({
-    })
+// export async function GET() {
+//     const user = await client.user.findFirst({
+//     })
 
-    return NextResponse.json({
-        email : user?.email,
-        username : "chaitanya122"
-    })
-}
+//     return NextResponse.json({
+//         email : user?.email,
+//         username : "chaitanya122"
+//     })
+// }
 
 // 
 export async function POST(request: Request) {
