@@ -1,4 +1,4 @@
-import client from "@/global"
+import client from "@/db"
 
 
 async function getUserDetails() {

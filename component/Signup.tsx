@@ -1,6 +1,6 @@
 // components/Signup.tsx
 "use client"; // Mark this component as a client component
-import axios from "axios";
+import { signup } from "@/app/actions/user";
 import { useRouter } from "next/navigation";
 import { ChangeEventHandler, useState } from "react";
 
@@ -34,12 +34,11 @@ export function Signup() {
                 placeholder="123456"
               />
               <button
+                suppressHydrationWarning
                 onClick={async () => {
-                  const response = await axios.post("http://localhost:3000/api/user", {
-                    username,
-                    password,
-                  });
-                  router.push("/");
+                  const res = await signup(username, password)
+                  console.log("Result",res)
+                //   router.push("/");
                 }}
                 type="button"
                 className="mt-8 w-full text-white bg-gray-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"
@@ -59,6 +58,7 @@ function LabelledInput({ label, placeholder, type, onChange }: LabelledInputType
     <div>
       <label className="block mb-2 text-sm text-black font-semibold pt-4">{label}</label>
       <input
+       suppressHydrationWarning
         onChange={onChange}
         type={type || "text"}
         id="first_name"
