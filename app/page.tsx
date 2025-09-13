@@ -1,7 +1,4 @@
-import { PrismaClient } from "@prisma/client";
-
-
-const client = new PrismaClient();
+import client from "@/global"
 
 
 async function getUserDetails() {
